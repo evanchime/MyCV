@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <script src="docs/assets/js/color-modes.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evan Chime</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.3/assets/css/docs.css">
+    <link rel="stylesheet" href="docs/assets/css/style.css">
+    <meta name="theme-color" content="#712cf9">
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="github" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+        </symbol> 
+        <symbol id="linkedin" viewBox="0 0 16 16">
+            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+        </symbol>
+        <symbol id="envelope-fill" viewBox="0 0 16 16">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+        </symbol>
+        <symbol id="telephone-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+        </symbol>
+        <symbol id="check2" viewBox="0 0 16 16">
+          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+          <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+          <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </symbol>
+    </svg>
+  
+      <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+                id="bd-theme"
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                aria-label="Toggle theme (auto)">
+          <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+              <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+              Light
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+              Dark
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+              <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+              Auto
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <figure class="text-center">
+                    <blockquote class="blockquote">
+                      <p>You better lose yourself in the music, the moment you own it, you better never let it go. You only get one shot, do not miss your chance to blow. This opportunity comes once in a lifetime.</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                      Eminem <cite title="Loose yourself (8 Mile)">Lose yourself (8 Mile)</cite>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar bg-dark navbar-expand-lg sticky-top" data-bs-theme="dark">
+        <div class="container-xxl">
+            <div class="row">
+                <div class="col-lg-auto me-5">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="page" href="#meProfile">Home</a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                          <a class="nav-link py-2 px-0 px-lg-2" href="#meSkills">Skills</a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto dropdown">
+                            <a class="nav-link py-2 px-0 px-lg-2 dropdown-toggle" href="#meEducation" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Education
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item overflow-auto" href="#softwareEngineeringBootcamp">Software Engineering Bootcamp</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#devOpsOnAWS">DevOps on AWS</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#lFCS">Linux Foundation Certified System Administration</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#embeddedSystems">Embedded Systems</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#combinatorialMathematics">Combinatorial Mathematics</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#bachelorDegree">Bachelor's degree</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item col-6 col-lg-auto dropdown">
+                            <a class="nav-link py-2 px-0 px-lg-2 dropdown-toggle" href="#meExperience" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Experience
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item overflow-auto" href="#domiciliaryHealthcareAssistant">Domiciliary Healthcare Assistant</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#healthcareAssistantBoltersCorner">Healthcare Assistant Bolters Corner</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#healthcareAssistantSunrise">Healthcare Assistant Sunrise</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#railwayWorker">Trackman / Groundworker /COSS</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#healthcareAssistantParkview">Healthcare Assistant Parkview</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#modalityHealthcareAssistant">Modality / Healthcare Assistant</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item col-6 col-lg-auto dropdown">
+                            <a class="nav-link py-2 px-0 px-lg-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Projects
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item overflow-auto" href="#ebookStore">ebookstore</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#inventoryPythonProject">Inventory Python Project</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#taskManager">Task Manager</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#whatsAppAIPython">WhatsApp AI Chatbot - Python</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item overflow-auto" href="#whatsAppAINodejs">WhatsApp AI Chatbot - Node.js</a></li>
+                            </ul>
+                           </li>
+                           <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2 " href="#contactUs">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-auto me-5">
+                    <hr class="d-lg-none text-white-50">
+
+                    <form class="navbar-nav ms-md-auto" action="search" method="get" role="search">
+                        <input 
+                          class="form-control me-2" 
+                          type="search"
+                          name="q" 
+                          placeholder="  &#128269; Search this CV..." 
+                          aria-label="Search through site content"
+                          maxlength="100"
+                          required>
+                        <button class="btn btn-outline-success" type="submit">Go!</button>
+                    </form>
+
+                    <hr class="d-lg-none text-white-50">
+
+                </div>
+                <div class="col-lg-auto">
+                    <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/evanchime" target="_blank" rel="noopener">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 499.36" role="img"><title>GitHub</title><path fill="currentColor" fill-rule="evenodd" d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"/></svg>
+                              <small class="d-lg-none ms-2">GitHub</small>
+                            </a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://linkedin.com/in/evan-chime-341389254" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 16 16" role="img"><title>LinkedIn</title>
+                              <path fill="currentColor" fill-rule="evenodd" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                            </svg>
+                              <small class="d-lg-none ms-2">LinkedIn</small>
+                            </a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="mailto:evanchime@gmail.com" target="_blank" rel="noopener">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="navbar-nav-svg" viewBox="0 0 16 16" role="img"><title>Email</title>
+                                <path fill="currentColor" fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                              </svg>
+                              <small class="d-lg-none ms-2">Email</small>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                            <hr class="d-lg-none my-2 text-white-50">
+                        </li>
+                        
+                        <li class="nav-item col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="tel:+447403638832">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="navbar-nav-svg" viewBox="0 0 16 16" role="img"><title>Call Us</title>
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                              </svg>
+                              <small class="ms-2">+447403638832</small>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="my-5">
+        <div class="container">
+            <section id="meProfile" class="row">
+                <h1 class="display-1 font-monospace fw-bold text-center">Evan Chime</h1>
+                <div class="clearfix my-5">
+                    <img src="20241004_222802.jpg" class="col-md-6 float-md-start mb-2 me-3 px-md-3 ms-md-3 img-fluid rounded" alt="Evan">
+                    
+                    <p class="font-monospace fs-5">
+                        I am a highly motivated and results-oriented self-taught programmer with a 
+                        strong foundation in Python, C, C++, JavaScript/Node.js, Bash, and AWK. I am 
+                        eager to leverage acquired skills and Linux Foundation Certified System 
+                        Administrator (LFCS) certification to contribute to a fast-paced IT 
+                        environment as an Entry-Level Software Developer. I possess a passion for 
+                        learning and a strong work ethic, honed through extensive self-study and 
+                        hands-on projects.
+                    </p>
+                    
+                    <p class="font-monospace fs-5">
+                        I am a quick learner and a team player with excellent
+                        communication skills, able to work effectively with diverse teams and
+                        stakeholders. I am always looking for new opportunities to 
+                        grow and develop my skills. I am seeking to apply my technical skills in a 
+                        dynamic and collaborative environment, where I can contribute to the development 
+                        of innovative software solutions to complex problems.
+                    </p>
+
+                    <p class="font-monospace fs-5">
+                        Aside from problem-solving, I'm a family-oriented man. I enjoy socializing, 
+                        spending time with friends and family. I love good music...they're like diamonds, 
+                        they live forever. I feel it. I'm also passionate about football...I play. 
+                        In addition, I love traveling, reading, watching movies and documentaries, 
+                        and keeping up with the latest fashion and social media trends.
+                    </p>
+                    </div>
+            </section>
+            <section id="meSkills" class="row">
+                <h2 class="display-2 font-monospace fw-bold text-center">Skills</h2>
+                <dl>
+                    <dt><h6 class="display-6 font-monospace fw-bold fs-2">Programming Languages</h6></dt>
+                    <dd class="font-monospace fs-5">
+                        Python (Intermediate), C (Intermediate), C++ (Intermediate), JavaScript/Node.js (Intermediate), 
+                        PHP (Intermediate), Bash (Intermediate), AWK (Intermediate)
+                    </dd>
+                    <dt><h6 class="display-6 font-monospace fw-bold fs-2">Web Development</h6></dt>
+                    <dd class="font-monospace fs-5">HTML, CSS, Bootstrap, Express.js, Django, Flask</dd>
+                    <dt><h6 class="display-6 font-monospace fw-bold fs-2">Database Management</h6></dt>
+                    <dd class="font-monospace fs-5">SQL, SQLite, Redis</dd>
+                    <dt><h6 class="display-6 font-monospace fw-bold fs-2">Version Control</h6></dt>
+                    <dd class="font-monospace fs-5">Git, GitHub</dd>
+                    <dt><h6 class="display-6 font-monospace fw-bold fs-2">Operating Systems</h6></dt>
+                    <dd class="font-monospace fs-5">Linux</dd>
+                    <dt><h6 class="display-6 font-monospace fw-bold fs-2">Tools</h6></dt>
+                    <dd class="font-monospace fs-5">
+                        VS Code, Apache HTTP Server, Jupyter Notebook, Postman, 
+                        Docker, Kubernetes, Ansible, Terraform, VMs, AWS, Heroku
+                    </dd>
+                </dl>
+            </section>
+            <section id="meEducation" class="row mt-4">
+                <h2 class="display-2 font-monospace fw-bold text-center">Education</h2>
+                <article id="softwareEngineeringBootcamp">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Software Engineering Bootcamp - Ongoing (finishing December 5th)</h6>
+                    <p class="font-monospace fs-5">
+                        During my time at the 6 months Imperial College London's software engineering bootcamp, 
+                        I acquired a robust foundation in software development. I honed my skills in 
+                        Python, SQL, HTML, and CSS, while solidifying my understanding of core 
+                        computer science principles. Through hands-on projects and rigorous 
+                        coursework, I gained proficiency in Django and Agile methodologies. 
+                        My ability to write efficient algorithms and collaborate effectively within 
+                        teams has equipped me to contribute meaningfully to software development 
+                        initiatives. I completed 59 tasks and 8 capstone projects and one of the 
+                        projects is ebookstore. A program that can be used by a bookstore clerk to 
+                        manage the bookstore's inventory. The clerk is able to add new books to the 
+                        database, update book information, delete books from the database and search 
+                        the database to find a specific book. The technologies used include 
+                        Python, SQL and Git
+                    </p>
+                </article>
+                <article id="devOpsOnAWS">
+                    <h6 
+                        class="display-6 font-monospace fw-bold fs-2">DevOps on AWS - Code, Build and Test; Release and Deploy; Operate and Monitor | Sep 2023
+                    </h6>
+                    <p class="font-monospace fs-5">
+                        During the 6 weeks online course, I implemented a continuous delivery pipeline on
+                        AWS using CodePipeline, CodeCommit, CodeBuild, and CodeDeploy. Automated the deployment 
+                        process from code repository to production, incorporating manual approval for quality 
+                        control. Utilized CloudFormation to provision and manage the necessary 
+                        infrastructure, including an EC2 instance and S3 bucket. Successfully deployed 
+                        and tested updates to a blog website, demonstrating proficiency in AWS DevOps 
+                        practices
+                    </p>
+                </article>
+                <article id="lFCS">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">
+                        <a class="icon-link icon-link-hover" href="https://www.credly.com/badges/7a34468b-2c46-4074-bafa-273116df96d6/public_url">
+                            <img class="me-2" src="lfcs-linux-foundation-certified-systems-administrator_small.png" alt="LFCS badge">
+                        </a>
+                        Linux Foundation Certified System Administration | Apr 2023
+                    </h6>
+                    <p class="font-monospace fs-5">
+                        I completed the Linux Foundation Certified System Administrator (LFCS) 
+                        certification, which validated my expertise in Linux system administration. 
+                        I demonstrated proficiency in managing Linux systems, including configuring 
+                        storage, networking, and security. I also gained experience in shell scripting 
+                        and system maintenance, enabling me to effectively troubleshoot and resolve 
+                        system issues
+                    </p>
+                </article>
+                <article id="embeddedSystems">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Embedded Systems | May 2016</h6>
+                    <p class="font-monospace fs-5">
+                        Successfully completed a comprehensive 16 weeks online course in embedded systems 
+                        programming from University of Austin Texas USA, acquiring a strong 
+                        foundation in computer architecture and C language proficiency. I developed 
+                        a solid understanding of fundamental data structures and algorithms, 
+                        enabling efficient problem-solving and code optimization. Applied modular 
+                        design principles and abstraction techniques to create robust and scalable 
+                        embedded systems applications. Gained expertise in writing clean, readable, 
+                        and maintainable C code, adhering to industry best practices. Effectively 
+                        managed memory resources, utilizing both global and stack-based storage to 
+                        optimize performance and avoid memory-related errors. Employed advanced 
+                        debugging techniques and simulators to identify and resolve issues in 
+                        embedded systems code. Successfully interfaced with a variety of peripherals, 
+                        including switches, LEDs, DACs, ADCs, motors, and serial ports, to control 
+                        and monitor external devices. Implemented multithreaded programs to improve 
+                        system responsiveness and handle concurrent tasks efficiently. Utilized ADCs 
+                        and DACs for signal processing and output generation, enabling precise 
+                        control of analog devices. Acquired proficiency in controlling stepper motors 
+                        for precise movement and positioning in embedded systems applications. Gained 
+                        a foundational understanding of IoT concepts, technologies, and their 
+                        applications in the field of embedded systems
+                    </p>
+                </article>
+                <article id="combinatorialMathematics">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Combinatorial Mathematics | Jan 2015</h6>
+                    <p class="font-monospace fs-5">
+                        Completed a comprehensive 12 weeks online course in combinatorial mathematics, from 
+                        Tsinghua University, Beijing, China. By the end I gained an understanding of 
+                        the counting principles in our daily lives based on the basic operations "+", 
+                        "-", "*", "/". I was able to apply math to computer science and financial 
+                        analysis. I learnt the science behind combinations of discrete items, and 
+                        understood the history of combinatorics in life and mathematics. I had an 
+                        in-depth study of abstract theories and concrete methods of counting, and a 
+                        deep understanding of the role of combinatorial mathematics in promoting the 
+                        development of computer theory. Some of the topics include generating 
+                        functions, recurrent number serials such as fibonacci number, catalan number, 
+                        and more, pigeon hole principles, inclusion and exclusion principles and polya 
+                        counting based on group theory
+                    </p>
+                </article>
+                <article id="bachelorDegree">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Bachelor's degree | May 2005</h6>
+                    <p class="font-monospace fs-5">
+                        Graduated with a Bachelor's degree in Industrial Mathematics from Federal 
+                        University of Technology Owerri Nigeria. Throughout my 5 years academic journey, I 
+                        developed a strong foundation in mathematical principles and applied them to 
+                        real-world problems. My studies emphasized problem-solving, analytical 
+                        thinking, and quantitative analysis, equipping me with a versatile skill set 
+                        that is highly applicable to various fields, including computer science and 
+                        data analysis. I completed a final year project where I conducted a time series 
+                        analysis of vessel arrivals and departures at a seaport to optimize port operations 
+                        and improve efficiency. I also developed a strong foundation in computer programming
+                        and data analysis, which I have continued to build upon through self-study
+                        and hands-on projects
+                    </p>
+                </article>
+            </section>
+            <section id="meProjects" class="row mt-4">
+                <h2 class="display-2 font-monospace fw-bold text-center">Projects</h2>
+                <dl id="ebookStore">
+                    <dt>
+                        <h6 class="display-6 font-monospace fw-bold fs-2">
+                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="https://github.com/evanchime/ebookstore" target="_blank">ebookstore</a>
+                            | September 2024 
+                        </h6>
+                    </dt>
+                    <dd>
+                        <p class="font-monospace fs-6">
+                            Python, SQL, Git, GitHub
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            A program that can be used by a bookstore clerk to manage the bookstore's 
+                            inventory. The clerk is able to add new books to the database, update book 
+                            information, delete books from the database and search the database to find 
+                            a specific book.
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            Some of the challenges overcame include getting the title and author fields of 
+                            the database table to do unicode caseless comparisons, making the id field of 
+                            the database table sequential, implementing the book search feature and 
+                            getting accurately the pre-defined records from the file external source 
+                        </p>
+                    </dd>
+                </dl>
+                <dl id="inventoryPythonProject">
+                    <dt>
+                        <h6 class="display-6 font-monospace fw-bold fs-2">
+                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="https://github.com/evanchime/inventory" target="_blank">Inventory Python Project</a>
+                            | August 2024
+                        </h6>
+                    </dt>
+                    <dd>
+                        <p class="font-monospace fs-6">
+                            Python, Git, GitHub
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            A python project for managing inventory. It allows store staff members to 
+                            keep track of shoes, their quantities, and other relevant information. Some of 
+                            the features include adding new shoes to the inventory, updating quantity of 
+                            shoes, viewing all shoes in the inventory, determining the product with the 
+                            lowest quantity and restocking, searching products by code, calculating total 
+                            value of each shoe and showing shoes on sale.
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            Some of the challenges overcome were getting the shoes data from the external 
+                            source and converting the data into a shoe object accurately. Also ensuring 
+                            consistency when reading from and writing to the external source, the shoe data  
+                        </p>
+                    </dd>
+                </dl>
+                <dl id="taskManager">
+                    <dt>
+                        <h6 class="display-6 font-monospace fw-bold fs-2">
+                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="https://github.com/evanchime/task_manager" target="_blank">Task Manager</a>
+                            | July 2024
+                        </h6>
+                    </dt>
+                    <dd>
+                        <p class="font-monospace fs-6">
+                            Python, Git, GitHub
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            A program for a small business to help it manage tasks assigned to each member 
+                            of the team. Some of the features include registering users, adding tasks, 
+                            viewing all tasks, viewing a specific user's task, displaying statistics and 
+                            generating reports
+                        </p>
+                        <p class="font-monospace fs-5">
+                            Some of the challenges overcame was how to ensure the date entered by the user 
+                            was valid and getting the data from the external source accurately 
+                        </p>
+                    </dd>
+                </dl>
+                <dl id="whatsAppAIPython">
+                    <dt>
+                        <h6 class="display-6 font-monospace fw-bold fs-2">
+                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="https://github.com/evanchime/whatsapp-llama" target="_blank">
+                                WhatsApp AI Chatbot (Python version)
+                            </a>
+                            | March 2024
+                        </h6>
+                    </dt>
+                    <dd>
+                        <p class="font-monospace fs-6">
+                            Python, Git, GitHub, Flask, WhatsApp Business Platform API, AWS EC2, Llama 2 Large Language Model, LangChain, ngrok
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            An AI Chatbot written in python. The user sends a message from their WhatsApp 
+                            Business app. The WhatsApp Business Platform receives and forwards the message 
+                            to a webhook. The webhook calls a web app, running in an AWS EC2 instance, 
+                            passing along the user message. The web app calls Meta's Llama 2 LLM with the 
+                            user message. Llama 2 returns the answer. The web app sends the answer and 
+                            user phone number to the WhatsApp Platform. The WhatsApp platform sends the 
+                            answer to the app
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            The major achievement and challenge that was overcame was getting the chatbot 
+                            to remember previous conversations and not allowing the chatbot and its 
+                            conversations to live forever 
+                        </p>
+                    </dd>
+                </dl>
+                <dl id="whatsAppAINodejs">
+                    <dt>
+                        <h6 class="display-6 font-monospace fw-bold fs-2">
+                            <a class="link-offset-2 link-underline link-underline-opacity-0" href="https://github.com/evanchime/deeveedee" target="_blank">
+                                WhatsApp AI Chatbot (Node.js version)
+                            </a>
+                            | February 2024
+                        </h6>
+                    </dt>
+                    <dd>
+                        <p class="font-monospace fs-6">
+                            Node.js, Express.js, WhatsApp Business Platform API, Heroku, OpenAI's Assistant API, Redis, Git, GitHub
+                        </p> 
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            An AI Chatbot written in Node.js. The user sends a message from their WhatsApp 
+                            app. The WhatsApp Platform receives and forwards the message to a webhook. 
+                            The webhook calls a web app, running in Heroku, passing along the user 
+                            message. The web app calls OpenAI's Assistants API with the user message. The 
+                            Assistant's API returns the answer. The web app sends the answer and user 
+                            phone number to the WhatsApp Platform. The WhatsApp platform sends the answer 
+                            to the app
+                        </p>
+                    </dd>
+                    <dd>
+                        <p class="font-monospace fs-5">
+                            The major achievement and challenge that was overcame was getting the chatbot 
+                            to remember previous conversations and not allowing the chatbot and its 
+                            conversations to live forever 
+                        </p>
+                    </dd>
+                </dl>
+            </section>
+            <section id="meExperience" class="row mt-4">
+                <h2 class="display-2 font-monospace fw-bold text-center">Experience</h2>
+                <article id="domiciliaryHealthcareAssistant">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Domiciliary Healthcare Assistant | Care Providers Ltd | Sep 2010 - Jan 2011</h6>
+                    <p class="font-monospace fs-5">
+                        Provided compassionate, personalized care to elderly clients in their homes.
+                        Built trusting relationships and assisted with daily living activities, 
+                        including bathing, dressing, and feeding. Ensured medication administration 
+                        and maintained a safe, hygienic environment. Received positive feedback for 
+                        exceptional care and client satisfaction. Successfully enabled clients to 
+                        maintain independence and live comfortably in their homes.
+                    </p>
+                </article>
+                <article id="healthcareAssistantBoltersCorner">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Healthcare Assistant | Bolters Corner Care Home Bolters Corner | Jan 2011 - Feb 2011</h6>
+                    <p class="font-monospace fs-5">
+                        Provided compassionate care to elderly clients in care home settings.
+                        Assisted with daily living activities, including bathing, dressing, feeding. 
+                        Maintained a safe, hygienic environment. Achieved a perfect attendance record and 
+                        received positive feedback for exceptional care. Successfully contributed to 
+                        the well-being and independence of clients.
+                    </p>
+                </article>
+                <article id="healthcareAssistantSunrise">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Healthcare Assistant | Sunrise Senior Living Purley | Mar 2011 - Aug 2014</h6>
+                    <p class="font-monospace fs-5">
+                        Provided compassionate care to elderly clients in care home settings.
+                        Assisted with daily living activities, including bathing, dressing, feeding, 
+                        and medication administration. Accurately recorded vital signs and maintained 
+                        a safe, hygienic environment. Achieved a perfect attendance record and 
+                        received positive feedback for exceptional care. Successfully contributed to 
+                        the well-being and independence of clients.
+                    </p>
+                </article>
+                <article id="railwayWorker">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Trackman/Groundworker/Controller of Site Safety | Resourcing Solutions | Aug 2014 - Jan 2016</h6>
+                    <p class="font-monospace fs-5">
+                        Worked in the railway, maintaining the track, ensuring the track is safe for the trains to run on.
+                        Involved in the construction of the railway tracks, ensuring the track is laid properly and the
+                        ballast is compacted. Also involved in the construction of other railway infrastructure e.g
+                        platforms, bridges, laying  electrical cables etc. Ensured the safety of the workers and the public 
+                        by following the rules and regulations of the railway.
+
+                    </p>
+                </article>
+                <article id="healthcareAssistantParkview">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Healthcare Assistant | Parkview Care Home BexleyHeath | Nov 2019 - Dec 2020</h6>
+                    <p class="font-monospace fs-5">
+                        Provided compassionate care to elderly clients in care home settings.
+                        Assisted with daily living activities, including bathing, dressing, feeding. 
+                        Maintained a safe, hygienic environment. Achieved a perfect attendance record and 
+                        received positive feedback for exceptional care. Successfully contributed to 
+                        the well-being and independence of clients.
+                    </p>
+                </article>
+                <article id="modalityHealthcareAssistant">
+                    <h6 class="display-6 font-monospace fw-bold fs-2">Modality/Healthcare Assistant | Hammersmith Hospital Imperial College NHS Trust | Dec 2020 - Now</h6>
+                    <p class="font-monospace fs-5">
+                        Provided comprehensive patient care in a hospital setting. Assisted with 
+                        imaging procedures, ensuring patient comfort and safety. Supported 
+                        sonographers, radiographers, and radiologists during scans. Contributed to the 
+                        smooth operation of the department, both during weekdays and weekends. 
+                        Delivered person-centered care on hospital wards, including personal care, 
+                        feeding, and vital sign and blood sugar monitoring.
+                    </p>
+                </article>
+            </section>
+            <div class="row text-center mt-4" id="contactUs">
+                <h6 class="display-6 font-monospace fw-bold fs-2">Get in touch</h6>
+                <p class="lead">Feedback? Do not hesitate to contact us.</p>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-6">
+                    <form action="/contact" method="post">
+                    <div class="form-floating my-5">
+                        <input
+                        type="email"
+                        id="email"
+                        placeholder="my@email.com"
+                        class="form-control"
+                        />
+                        <label for="name" class="form-label">Email</label>
+                    </div>
+                    <div class="form-floating my-5">
+                        <input
+                        type="name"
+                        id="name"
+                        placeholder="e.g. Dawid"
+                        class="form-control"
+                        />
+                        <label for="name" class="form-label">Name</label>
+                    </div>
+                    <label for="subject" class="form=label">Subject</label>
+                    <select name="subject" id="subject" class="form-select">
+                        <option value="technical" selected>Technical question</option>
+                        <option value="other">Other</option>
+                    </select>
+        
+                    <div class="form-floating my-5">
+                        <textarea
+                        name="query"
+                        id="query"
+                        style="height: 150px"
+                        class="form-control"
+                        placeholder="Write a message"
+                        ></textarea>
+        
+                        <label for="query">Write a message</label>
+                    </div>
+        
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Send!</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+        <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+          <div class="row">
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+              <p>&copy;2024 Bootstrap and it's contributors and Evan Chime. All rights reserved.</p>
+              <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-body-emphasis" href="https://github.com/evanchime" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#github"/></svg></a></li>
+                <li class="ms-3"><a class="link-body-emphasis" href="https://linkedin.com/in/evan-chime-341389254" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#linkedin"/></svg></a></li>
+                <li class="ms-3"><a class="link-body-emphasis" href="mailto:evanchime@gmail.com" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#envelope-fill"/></svg></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
